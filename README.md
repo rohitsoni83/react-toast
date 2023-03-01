@@ -1,2 +1,2 @@
-# react-toast
+# React-Toast
 Created a custom toast using typescript.
