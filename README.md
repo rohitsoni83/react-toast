@@ -1,10 +1,11 @@
-<div align="center"> <a href="https://react-hot-toast.com/"><img alt="react-toast" src="https://github.com/timolins/react-hot-toast/raw/main/assets/header.svg"/></a> </div>
+<div align="center"> <a href="https://react-hot-toast.com/">
+  <img alt="react-toast" width="600px" height="350px" src="https://www.linkpicture.com/q/react-toast.png"/></a> 
+</div>
 <div align="center">
 <a href="https://react-hot-toast.com/">Website</a> 
 <span>.</span>
-<a href="https://github.com/rohitsoni83/my-toast-app">Github</a>
+<a href="https://github.com/rohitsoni83/react-toast" target="_blank" >Github</a>
 </div>
-
 
 ## Features
 
