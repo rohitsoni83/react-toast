@@ -1,8 +1,8 @@
-<div align="center"> <a href="https://react-hot-toast.com/">
-  <img alt="react-toast" width="600px" height="350px" src="https://www.linkpicture.com/q/react-toast.png"/></a> 
+<div align="center"> <a href="https://rohitsoni83.github.io/react-toast/">
+  <img alt="react-toast" width="600px" height="350px" classname="border-radius" src="https://www.linkpicture.com/q/react-toast.png"/></a> 
 </div>
 <div align="center">
-<a href="https://react-hot-toast.com/">Website</a> 
+<a href="https://rohitsoni83.github.io/react-toast/">Website</a> 
 <span>.</span>
 <a href="https://github.com/rohitsoni83/react-toast" target="_blank" >Github</a>
 </div>
