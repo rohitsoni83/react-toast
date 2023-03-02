@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@webpack-cli/generators": "^3.0.1",
     "gh-pages": "^5.0.0"
   }
 }
