@@ -45,7 +45,7 @@ const MessageBarBase = styled("div")`
 
 const ProgressbarBase = styled("div")`
   position: absolute;
-  bottom: 0.6%;
+  bottom: 0.1%;
   left: 0.5%;
   right: 0.1%;
   width: 98%;

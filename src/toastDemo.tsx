@@ -52,45 +52,33 @@ const DemoToast = () => {
   const showToast = () => {
     switch (state.type) {
       case "error":
-        return toast.error(
-          `${state.message} - ( ${state.type.toUpperCase()} Toast )`,
-          {
-            duration: +state.duration,
-            position: state.position,
-            progressbar: state.progressbar,
-            theme: state.theme,
-          }
-        );
+        return toast.error(`${state.message} - ( ${state.type} toast )`, {
+          duration: +state.duration,
+          position: state.position,
+          progressbar: state.progressbar,
+          theme: state.theme,
+        });
       case "info":
-        return toast.info(
-          `${state.message} - ( ${state.type.toUpperCase()} Toast )`,
-          {
-            duration: +state.duration,
-            position: state.position,
-            progressbar: state.progressbar,
-            theme: state.theme,
-          }
-        );
+        return toast.info(`${state.message} - ( ${state.type} toast )`, {
+          duration: +state.duration,
+          position: state.position,
+          progressbar: state.progressbar,
+          theme: state.theme,
+        });
       case "success":
-        return toast.success(
-          `${state.message} - ( ${state.type.toUpperCase()} Toast )`,
-          {
-            duration: +state.duration,
-            position: state.position,
-            progressbar: state.progressbar,
-            theme: state.theme,
-          }
-        );
+        return toast.success(`${state.message} - ( ${state.type} toast )`, {
+          duration: +state.duration,
+          position: state.position,
+          progressbar: state.progressbar,
+          theme: state.theme,
+        });
       case "warning":
-        return toast.warning(
-          `${state.message} - ( ${state.type.toUpperCase()} Toast )`,
-          {
-            duration: +state.duration,
-            position: state.position,
-            progressbar: state.progressbar,
-            theme: state.theme,
-          }
-        );
+        return toast.warning(`${state.message} - ( ${state.type} toast )`, {
+          duration: +state.duration,
+          position: state.position,
+          progressbar: state.progressbar,
+          theme: state.theme,
+        });
       case "custom":
         return toast((t) => "I'm a custom toast", {
           position: state.position,
