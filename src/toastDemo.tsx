@@ -226,15 +226,6 @@ const DemoToast = () => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() =>
-          toast.success("This is a toast", {
-            duration: 5000000,
-          })
-        }
-      >
-        Show A Toast
-      </button>
     </div>
   );
 };
