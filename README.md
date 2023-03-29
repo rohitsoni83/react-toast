@@ -18,16 +18,10 @@
 
 ## Installation
 
-#### With yarn
-
-```sh
-yarn add react-toast
-```
-
 #### With NPM
 
 ```sh
-npm install react-toast
+npm install cg-toast
 ```
 
 ## Getting Started
@@ -35,7 +29,7 @@ npm install react-toast
 Add the Toaster to your app first. It will take care of rendering all notifications emitted. Now you can trigger `toast()` from anywhere!
 
 ```jsx
-import toast, { Toaster } from "react-toast";
+import toast, { Toaster } from "cg-toast";
 
 const showToast = () => toast("I'm a toast.");
 
