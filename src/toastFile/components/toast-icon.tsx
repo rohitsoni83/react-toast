@@ -3,17 +3,14 @@ import { styled, keyframes } from "goober";
 
 import { Toast } from "../core/types";
 
-const StatusWrapper = styled("div")`
-  position: absolute;
-`;
-
 const IndicatorWrapper = styled("div")`
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   min-width: 20px;
   min-height: 20px;
+  font-size: 18px;
+  margin-right: 8px;
 `;
 
 const enter = keyframes`
@@ -53,55 +50,52 @@ export const ToastIcon: React.FC<{
 
   return (
     <IndicatorWrapper>
-      {type !== "loading" && (
-        <StatusWrapper>
-          {type === "error" ? (
-            <i
-              className="fa-solid fa-circle-exclamation"
-              style={{
-                color: customIconColor
-                  ? customIconColor
-                  : theme === "coloured"
-                  ? "#fff"
-                  : "rgb(211, 47, 47)",
-              }}
-            ></i>
-          ) : type === "info" ? (
-            <i
-              className="fa-solid fa-circle-info"
-              style={{
-                color: customIconColor
-                  ? customIconColor
-                  : theme === "coloured"
-                  ? "#fff"
-                  : "rgb(2, 136, 209)",
-              }}
-            ></i>
-          ) : type === "warning" ? (
-            <i
-              className="fa-solid fa-triangle-exclamation"
-              style={{
-                color: customIconColor
-                  ? customIconColor
-                  : theme === "coloured"
-                  ? "#262626"
-                  : "rgb(245, 124, 0)",
-              }}
-            ></i>
-          ) : (
-            <i
-              className="fa-solid fa-circle-check"
-              style={{
-                color: customIconColor
-                  ? customIconColor
-                  : theme === "coloured"
-                  ? "#fff"
-                  : "rgb(56, 142, 60)",
-              }}
-            ></i>
-          )}
-        </StatusWrapper>
-      )}
+      {type !== "loading" &&
+        (type === "error" ? (
+          <i
+            className="fa-solid fa-circle-exclamation"
+            style={{
+              color: customIconColor
+                ? customIconColor
+                : theme === "coloured"
+                ? "#fff"
+                : "rgb(211, 47, 47)",
+            }}
+          ></i>
+        ) : type === "info" ? (
+          <i
+            className="fa-solid fa-circle-info"
+            style={{
+              color: customIconColor
+                ? customIconColor
+                : theme === "coloured"
+                ? "#fff"
+                : "rgb(2, 136, 209)",
+            }}
+          ></i>
+        ) : type === "warning" ? (
+          <i
+            className="fa-solid fa-triangle-exclamation"
+            style={{
+              color: customIconColor
+                ? customIconColor
+                : theme === "coloured"
+                ? "#262626"
+                : "rgb(245, 124, 0)",
+            }}
+          ></i>
+        ) : (
+          <i
+            className="fa-solid fa-circle-check"
+            style={{
+              color: customIconColor
+                ? customIconColor
+                : theme === "coloured"
+                ? "#fff"
+                : "rgb(56, 142, 60)",
+            }}
+          ></i>
+        ))}
     </IndicatorWrapper>
   );
 };

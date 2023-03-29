@@ -4,7 +4,6 @@ import { styled, keyframes } from "goober";
 import { Toast, ToastPosition, resolveValue, Renderable } from "../core/types";
 import { ToastIcon } from "./toast-icon";
 import { getBackgroundColor, prefersReducedMotion } from "../core/utils";
-import "./toastBar.scss";
 
 const enterAnimation = (factor: number) => `
 0% {transform: translate3d(0,${factor * -200}%,0) scale(.6); opacity:.5;}
@@ -18,6 +17,49 @@ const exitAnimation = (factor: number) => `
 
 const fadeInAnimation = `0%{opacity:0;} 100%{opacity:1;}`;
 const fadeOutAnimation = `0%{opacity:1;} 100%{opacity:0;}`;
+
+const ToastBarBase = styled("div")`
+  display: flex;
+  align-items: center;
+  line-height: 1.3;
+  will-change: transform;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
+  max-width: 320px;
+  pointer-events: auto;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+`;
+
+const MessageBarBase = styled("div")`
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: inherit;
+  flex: 1 1 auto;
+  white-space: pre-line;
+`;
+
+const ProgressbarBase = styled("div")`
+  position: absolute;
+  bottom: 0.6%;
+  left: 0.5%;
+  right: 0.1%;
+  width: 98%;
+  height: 0.3rem;
+  background-color: transparent;
+`;
+
+const ProgressbarSpan = styled("div")`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+`;
 
 interface ToastBarProps {
   toast: Toast;
@@ -58,9 +100,9 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
 
     const icon = <ToastIcon toast={toast} />;
     const message = (
-      <div className="message-container" {...toast.ariaProps}>
+      <MessageBarBase {...toast.ariaProps}>
         {resolveValue(toast.message, toast)}
-      </div>
+      </MessageBarBase>
     );
 
     // progressBar
@@ -85,8 +127,8 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
     }, []);
 
     return (
-      <div
-        className={toast.className ? toast.className : "toast-bar-container"}
+      <ToastBarBase
+        className={toast.className}
         style={{
           ...animationStyle,
           ...style,
@@ -104,8 +146,8 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
             {message}
             {/* render progressbar */}
             {toast.progressbar && toast.duration && (
-              <div className="progress-bar">
-                <span
+              <ProgressbarBase>
+                <ProgressbarSpan
                   style={{
                     width: `${progress}%`,
                     backgroundColor:
@@ -115,11 +157,11 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
                     borderRadius: toast.style?.borderRadius || "8px",
                   }}
                 />
-              </div>
+              </ProgressbarBase>
             )}
           </>
         )}
-      </div>
+      </ToastBarBase>
     );
   }
 );

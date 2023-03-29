@@ -15,11 +15,11 @@ function MyLabel(props: LabelProps) {
 
 const DemoToast = () => {
   const [state, setState] = useState({
-    position: "bottom-left",
+    position: "top-center",
     type: "success",
     theme: "coloured",
     duration: "5000",
-    progressbar: false,
+    progressbar: true,
     message: "This is demo",
   });
 
@@ -107,7 +107,7 @@ const DemoToast = () => {
     <div className="demo-form">
       <div className="top-heading-container">
         <p>
-          React - <span>Toast</span>
+          CG - <span>Toast</span>
         </p>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
@@ -226,6 +226,15 @@ const DemoToast = () => {
           </div>
         </div>
       </div>
+      <button
+        onClick={() =>
+          toast.success("This is a toast", {
+            duration: 5000000,
+          })
+        }
+      >
+        Show A Toast
+      </button>
     </div>
   );
 };
