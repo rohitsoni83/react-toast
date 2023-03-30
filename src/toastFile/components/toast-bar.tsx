@@ -26,19 +26,17 @@ const ToastBarBase = styled("div")`
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
   max-width: 320px;
   pointer-events: auto;
-  padding: 10px;
   border-radius: 8px;
   position: relative;
+  padding: 10px;
   font-family: "Roboto", sans-serif;
 `;
 
 const MessageBarBase = styled("div")`
   display: flex;
   justify-content: flex-start;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
   color: inherit;
+  margin: 4px 4px 4px 8px;
   flex: 1 1 auto;
   white-space: pre-line;
 `;

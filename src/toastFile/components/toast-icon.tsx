@@ -10,7 +10,6 @@ const IndicatorWrapper = styled("div")`
   min-width: 20px;
   min-height: 20px;
   font-size: 18px;
-  margin-right: 8px;
 `;
 
 const enter = keyframes`

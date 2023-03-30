@@ -88,6 +88,7 @@ export const Toaster: React.FC<ToasterProps> = ({
   position = "top-center",
   toastOptions,
   gutter,
+  children,
   containerStyle,
   containerClassName,
 }) => {
@@ -97,7 +98,7 @@ export const Toaster: React.FC<ToasterProps> = ({
     <div
       style={{
         position: "fixed",
-        zIndex: 100,
+        zIndex: 99999,
         top: DEFAULT_OFFSET,
         left: DEFAULT_OFFSET,
         right: DEFAULT_OFFSET,
@@ -106,8 +107,6 @@ export const Toaster: React.FC<ToasterProps> = ({
         ...containerStyle,
       }}
       className={containerClassName}
-      // onMouseEnter={handlers.startPause}
-      // onMouseLeave={handlers.endPause}
     >
       {toasts.map((t) => {
         const toastPosition = t.position || position;
@@ -128,6 +127,8 @@ export const Toaster: React.FC<ToasterProps> = ({
           >
             {t.type === "custom" ? (
               resolveValue(t.message, t)
+            ) : children ? (
+              children(t)
             ) : (
               <ToastBar toast={t} position={toastPosition} />
             )}

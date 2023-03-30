@@ -44,6 +44,7 @@ const createToast = (
       : opts?.theme === "coloured"
       ? "#fff"
       : "#262626",
+    ...opts?.style,
   },
 });
 
