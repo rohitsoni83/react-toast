@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import toast from "./toastFile";
+import { useState } from "react";
+import toast from "cg-toast";
 import { data } from "./toastDemoData";
-import { LabelHTMLAttributes } from "react";
 import toastImg from "./img/toast.png";
 import toastEmitter from "./img/toast-emitter.png";
 import "./toastDemo.scss";
 
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
-  htmlFor: string;
-}
-function MyLabel(props: LabelProps) {
+function MyLabel(props) {
   return <label htmlFor={props.htmlFor}>{props.children}</label>;
 }
 
@@ -23,7 +19,7 @@ const DemoToast = () => {
     message: "This is demo",
   });
 
-  const onChangeRadioBtn = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeRadioBtn = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setState((prev) => ({
@@ -32,7 +28,7 @@ const DemoToast = () => {
     }));
   };
 
-  const getCheckedValidation = (name: string, value: string) => {
+  const getCheckedValidation = (name, value) => {
     return name === "Position"
       ? state.position === value
       : name === "Type"
@@ -40,7 +36,7 @@ const DemoToast = () => {
       : name === "Theme" && state.theme === value;
   };
 
-  const onChangeDuration = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeDuration = (event) => {
     const value = event.target.value;
     (+value > 0 || value === "") &&
       setState((prev) => ({
@@ -178,10 +174,7 @@ const DemoToast = () => {
             </div>
           </div>
           <div className="link-container">
-            <a
-              href="https://github.com/rohitsoni83/my-toast-app"
-              target="_blank"
-            >
+            <a href="https://github.com/rohitsoni83/my-toast-app" target="_">
               <i className="fa fa-github" style={{ marginRight: "16px" }} />
               <p>Github Link</p>
             </a>
