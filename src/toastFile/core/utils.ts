@@ -29,6 +29,6 @@ export const getBackgroundColor = (type: string) => {
     case "warning":
       return "rgb(245, 124, 0)";
     default:
-      return "#fff";
+      return "#262626";
   }
 };

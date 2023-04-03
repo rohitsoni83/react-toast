@@ -12,6 +12,25 @@ const IndicatorWrapper = styled("div")`
   font-size: 18px;
 `;
 
+const rotation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }`;
+
+const Spinner = styled("div")`
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #262626;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: ${rotation} 1s linear infinite;
+`;
+
 const enter = keyframes`
 from {
   transform: scale(0.6);
@@ -35,6 +54,7 @@ export const ToastIcon: React.FC<{
   toast: Toast;
 }> = ({ toast }) => {
   const { icon, type, theme, customIconColor } = toast;
+
   if (icon !== undefined) {
     if (typeof icon === "string") {
       return <AnimatedIconWrapper>{icon}</AnimatedIconWrapper>;
@@ -49,7 +69,7 @@ export const ToastIcon: React.FC<{
 
   return (
     <IndicatorWrapper>
-      {type !== "loading" &&
+      {(type !== "loading" &&
         (type === "error" ? (
           <i
             className="fa-solid fa-circle-exclamation"
@@ -94,7 +114,8 @@ export const ToastIcon: React.FC<{
                 : "rgb(56, 142, 60)",
             }}
           ></i>
-        ))}
+        ))) ||
+        (type === "loading" && <Spinner></Spinner>)}
     </IndicatorWrapper>
   );
 };

@@ -24,7 +24,7 @@ const ToastBarBase = styled("div")`
   line-height: 1.3;
   will-change: transform;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
-  max-width: 320px;
+  max-width: 360px;
   pointer-events: auto;
   border-radius: 8px;
   position: relative;
@@ -124,6 +124,23 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
       };
     }, []);
 
+    const progressbar = toast.progressbar && (
+      <ProgressbarBase>
+        <ProgressbarSpan
+          style={{
+            width: `${progress}%`,
+            backgroundColor:
+              toast.theme === "coloured"
+                ? "#fff"
+                : getBackgroundColor(toast.type),
+            borderRadius: toast.style?.borderRadius
+              ? toast.style?.borderRadius
+              : "8px",
+          }}
+        />
+      </ProgressbarBase>
+    );
+
     return (
       <ToastBarBase
         className={toast.className}
@@ -142,21 +159,7 @@ export const ToastBar: React.FC<ToastBarProps> = React.memo(
           <>
             {icon}
             {message}
-            {/* render progressbar */}
-            {toast.progressbar && toast.duration && (
-              <ProgressbarBase>
-                <ProgressbarSpan
-                  style={{
-                    width: `${progress}%`,
-                    backgroundColor:
-                      toast.theme === "coloured"
-                        ? "#fff"
-                        : getBackgroundColor(toast.type),
-                    borderRadius: toast.style?.borderRadius || "8px",
-                  }}
-                />
-              </ProgressbarBase>
-            )}
+            {progressbar}
           </>
         )}
       </ToastBarBase>
