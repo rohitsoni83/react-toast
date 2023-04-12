@@ -95,7 +95,7 @@ const DemoToast = () => {
         </p>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ width: "70%", height: "auto", padding: "16px" }}>
+        <div style={{ width: "70%", height: "auto", padding: "0 16px" }}>
           <img src={toastGif} style={{ paddingTop: "16px" }} loop />
           <form className="form-container">
             {Object.entries(data).map(([name, options], dataInd) => (
