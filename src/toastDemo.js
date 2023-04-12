@@ -3,6 +3,7 @@ import toast from "cg-toast";
 import { data } from "./toastDemoData";
 import toastImg from "./img/toast.png";
 import toastEmitter from "./img/toast-emitter.png";
+import toastGif from "./img/toast.gif";
 import "./toastDemo.scss";
 
 function MyLabel(props) {
@@ -78,9 +79,8 @@ const DemoToast = () => {
       case "custom":
         return toast((t) => "I'm a custom toast", {
           position: state.position,
-          icon: <i className="fa fa-github" />,
+          icon: <i className="fa fa-face-smile" style={{ color: "#c29259" }} />,
           duration: +state.duration,
-          style: { backgroundColor: "#262626", color: "#fff" },
         });
       default:
         return;
@@ -95,91 +95,95 @@ const DemoToast = () => {
         </p>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <form style={{ padding: "16px" }} className="form-container">
-          {Object.entries(data).map(([name, options], dataInd) => (
-            <div className="position-container" key={dataInd}>
-              <p className="bold-text">{name}</p>
+        <div style={{ width: "70%", height: "auto", padding: "16px" }}>
+          <img src={toastGif} style={{ paddingTop: "16px" }} loop />
+          <form className="form-container">
+            {Object.entries(data).map(([name, options], dataInd) => (
+              <div className="position-container" key={dataInd}>
+                <p className="bold-text">{name}</p>
+                <div className="content">
+                  {Object.entries(options).map(([value, label], index) => (
+                    <div className="flex-center" key={index}>
+                      <input
+                        type="radio"
+                        className="radio-btn"
+                        name={name}
+                        value={value}
+                        id={value}
+                        checked={getCheckedValidation(name, value)}
+                        onChange={(e) => onChangeRadioBtn(e)}
+                      />
+                      {MyLabel({ htmlFor: value, children: label })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            <div className="option-container">
+              <p className="bold-text">Options</p>
               <div className="content">
-                {Object.entries(options).map(([value, label], index) => (
-                  <div className="flex-center" key={index}>
-                    <input
-                      type="radio"
-                      className="radio-btn"
-                      name={name}
-                      value={value}
-                      id={value}
-                      checked={getCheckedValidation(name, value)}
-                      onChange={(e) => onChangeRadioBtn(e)}
-                    />
-                    {MyLabel({ htmlFor: value, children: label })}
-                  </div>
-                ))}
+                <p>Auto Delay Duration</p>
+                <input
+                  type="number"
+                  className="duration-input"
+                  value={state.duration}
+                  onChange={(e) => onChangeDuration(e)}
+                />
+                <p>ms</p>
               </div>
             </div>
-          ))}
 
-          <div className="option-container">
-            <p className="bold-text">Options</p>
-            <div className="content">
-              <p>Auto Delay Duration</p>
-              <input
-                type="number"
-                className="duration-input"
-                value={state.duration}
-                onChange={(e) => onChangeDuration(e)}
-              />
-              <p>ms</p>
+            <div className="selection-container">
+              <p className="bold-text">Selection</p>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <input
+                  type="checkbox"
+                  id="progress-bar"
+                  style={{ marginRight: "12px", cursor: "pointer" }}
+                  checked={state.progressbar}
+                  onChange={({ target: { checked } }) =>
+                    setState((prev) => ({ ...prev, progressbar: checked }))
+                  }
+                />
+                {/* <label for="progress-bar">Add Progressbar</label> */}
+                {MyLabel({
+                  htmlFor: "progress-bar",
+                  children: "Add Progressbar",
+                })}
+              </div>
             </div>
-          </div>
-
-          <div className="selection-container">
-            <p className="bold-text">Selection</p>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <input
-                type="checkbox"
-                id="progress-bar"
-                style={{ marginRight: "12px", cursor: "pointer" }}
-                checked={state.progressbar}
-                onChange={({ target: { checked } }) =>
-                  setState((prev) => ({ ...prev, progressbar: checked }))
-                }
-              />
-              {/* <label for="progress-bar">Add Progressbar</label> */}
-              {MyLabel({
-                htmlFor: "progress-bar",
-                children: "Add Progressbar",
-              })}
+            <div className="message-container">
+              <p className="bold-text">Write Message</p>
+              <div>
+                <input
+                  type="text"
+                  className="message-input"
+                  value={state.message}
+                  onChange={({ target: { value } }) =>
+                    setState((prev) => ({ ...prev, message: value }))
+                  }
+                />
+                <button
+                  className="show-toast-btn"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showToast();
+                  }}
+                >
+                  Show Toast
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="message-container">
-            <p className="bold-text">Write Message</p>
-            <div>
-              <input
-                type="text"
-                className="message-input"
-                value={state.message}
-                onChange={({ target: { value } }) =>
-                  setState((prev) => ({ ...prev, message: value }))
-                }
-              />
-              <button
-                className="show-toast-btn"
-                onClick={(e) => {
-                  e.preventDefault();
-                  showToast();
-                }}
-              >
-                Show Toast
-              </button>
+            <br />
+            <div className="link-container">
+              <a href="https://github.com/rohitsoni83/my-toast-app" target="_">
+                <i className="fa fa-github" style={{ marginRight: "16px" }} />
+                <p>Github Link</p>
+              </a>
             </div>
-          </div>
-          <div className="link-container">
-            <a href="https://github.com/rohitsoni83/my-toast-app" target="_">
-              <i className="fa fa-github" style={{ marginRight: "16px" }} />
-              <p>Github Link</p>
-            </a>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <div className="right-container">
           <p className="text-head">The Playground</p>
