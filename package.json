@@ -11,14 +11,14 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.10",
+    "cg-toast": "git+ssh://git@github.com/rohitsoni83/cg-toast.git",
     "goober": "^2.1.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.58.0",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "cg-toast": "git+ssh://git@github.com/rohitsoni83/cg-toast.git"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

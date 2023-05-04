@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import toast from "cg-toast";
 import { data } from "./toastDemoData";
 import toastImg from "./img/toast.png";
@@ -96,7 +96,7 @@ const DemoToast = () => {
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div style={{ width: "70%", height: "auto", padding: "0 16px" }}>
-          <img src={toastGif} style={{ paddingTop: "16px" }} loop />
+          <img src={toastGif} alt="img" style={{ paddingTop: "16px" }} loop />
           <form className="form-container">
             {Object.entries(data).map(([name, options], dataInd) => (
               <div className="position-container" key={dataInd}>
