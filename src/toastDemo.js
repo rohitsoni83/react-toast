@@ -88,15 +88,15 @@ const DemoToast = () => {
   };
 
   return (
-    <div className="demo-form">
+    <>
       <div className="top-heading-container">
         <p>
           CG - <span>Toast</span>
         </p>
       </div>
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ width: "70%", height: "auto", padding: "0 16px" }}>
-          <img src={toastGif} alt="img" style={{ paddingTop: "16px" }} loop />
+      <div className="demo-form">
+        <div style={{ height: "100%", padding: "0 16px" }}>
+          {/* <img src={toastGif} alt="img" style={{ paddingTop: "16px" }} loop /> */}
           <form className="form-container">
             {Object.entries(data).map(([name, options], dataInd) => (
               <div className="position-container" key={dataInd}>
@@ -155,7 +155,17 @@ const DemoToast = () => {
             </div>
             <div className="message-container">
               <p className="bold-text">Write Message</p>
-              <div>
+              <div
+                className="action_container"
+                style={{
+                  width: "60%",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                  rowGap: "8px",
+                }}
+              >
                 <input
                   type="text"
                   className="message-input"
@@ -179,39 +189,13 @@ const DemoToast = () => {
             <div className="link-container">
               <a href="https://github.com/rohitsoni83/my-toast-app" target="_">
                 <i className="fa fa-github" style={{ marginRight: "16px" }} />
-                <p>Github Link</p>
+                <p style={{ textWrap: "nowrap" }}>Github Link</p>
               </a>
             </div>
           </form>
         </div>
-
-        <div className="right-container">
-          <p className="text-head">The Playground</p>
-          <div className="toast-code-container">
-            <div>
-              <p>Toast Container</p>
-              <img
-                width="100%"
-                height="240px"
-                style={{ borderRadius: "4px" }}
-                alt="Toast Container Img"
-                src={toastImg}
-              />
-            </div>
-            <div style={{ margin: "16px 0" }}>
-              <p>Toast Type Emitter</p>
-              <img
-                width="100%"
-                height="240px"
-                style={{ borderRadius: "4px" }}
-                alt="Toast Container Img"
-                src={toastEmitter}
-              />
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
