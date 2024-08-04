@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-toast/static/css/main.a1f27316.css",
-    "main.js": "/react-toast/static/js/main.6f4229af.js",
+    "main.css": "/react-toast/static/css/main.4090751a.css",
+    "main.js": "/react-toast/static/js/main.9483ea56.js",
     "static/media/toast.gif": "/react-toast/static/media/toast.a020ba06ceb4bda65fe7.gif",
     "static/media/toast-emitter.png": "/react-toast/static/media/toast-emitter.533e24c89c869bac4217.png",
     "static/media/toast.png": "/react-toast/static/media/toast.59366c95b2237e74b309.png",
     "index.html": "/react-toast/index.html",
-    "main.a1f27316.css.map": "/react-toast/static/css/main.a1f27316.css.map",
-    "main.6f4229af.js.map": "/react-toast/static/js/main.6f4229af.js.map"
+    "main.4090751a.css.map": "/react-toast/static/css/main.4090751a.css.map",
+    "main.9483ea56.js.map": "/react-toast/static/js/main.9483ea56.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1f27316.css",
-    "static/js/main.6f4229af.js"
+    "static/css/main.4090751a.css",
+    "static/js/main.9483ea56.js"
   ]
 }
